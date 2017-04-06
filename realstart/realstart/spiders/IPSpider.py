@@ -2,10 +2,16 @@
 import scrapy
 from ..items import IPItem
 from bs4 import BeautifulSoup
+from .. import contanst
 
 
 class IPSpider(scrapy.Spider):
     name = 'crawl_ip'
+
+    def closed(self, response):
+        # 当spider关闭时，该函数被调用。 该方法提供了一个替代调用signals.connect()来监听 spider_closed 信号的快捷方式。
+        print "spider close"
+        contanst.ip_spider_status = 'stop'
 
     def start_requests(self):
         urls = [
