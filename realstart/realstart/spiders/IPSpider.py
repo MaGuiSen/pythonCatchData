@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 import scrapy
+import time
+
 from ..items import IPItem
 from bs4 import BeautifulSoup
 from .. import contanst
+from scrapy import cmdline
 
 
 class IPSpider(scrapy.Spider):
@@ -17,9 +20,14 @@ class IPSpider(scrapy.Spider):
         urls = [
             'http://www.xicidaili.com/',
         ]
-        for url in urls:
-            print u'请求url：' + url
-            yield scrapy.Request(url=url, callback=self.parse)
+        while True:
+            if contanst.ip_spider_status is not 'running':
+                print '开启新的'
+                contanst.ip_validator_status = 'running'
+                for url in urls:
+                    print u'请求url：' + url
+                    yield scrapy.Request(url=url, callback=self.parse)
+            time.sleep(10)
 
     def parse(self, response):
         print u'开始解析。。。'

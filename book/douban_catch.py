@@ -67,22 +67,6 @@ def mains(url):
             print ("---------------------------")
             print (zuozheDetail)
 
-
-    # for bo in zuozhejianjie.next_sibling.next_sibling :
-    #     print (bo)
-    # print (zuozhejianjie.findNextSibling())
-
-
-    # for i in neirongjianjie:
-    #     print i.parent.parent.nextSibling.next_sibling
-
-    # for z in zuozhejianjie:
-    #     print z
-    #     .parent.parent.nextSibling.next_sibling.select("div.intro")[0]
-    # for i in tags:
-    #     print i.parent.nextSibling.next_sibling
-    # print str(score[0])
-
     #丛书信息
     congshuxinxi = soup.find_all("h2", text=["丛书信息"])
 
@@ -94,7 +78,7 @@ mains('')
 #     i += 1
 #     if i > 10:
 #         break
-#     urlss=[urls+"?start={}&type=T".format(str(i)) for i in range(0,980,20)]   #从channel中提取url信息，并组装成每一页的链接
+#     。urlss=[urls+"?start={}&type=T".format(str(i)) for i in range(0,980,20)]   #从channel中提取url信息，并组装成每一页的链接
 #     for url in urlss:
 #         mains(url)  # 执行主函数，开始爬取
 #         print(url)  # 输出要爬取的链接，这样我们就能知道爬到哪了，发生错误也好处理

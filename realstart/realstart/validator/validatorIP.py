@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 import os
 
-from ..utils import configutils as cu
+from realstart.utils import configutils as cu
 from mysql.connector import MySQLConnection
-from ..utils import validator
+from realstart.utils import validator
 
 
 class validatorIP(object):
@@ -28,7 +28,7 @@ class validatorIP(object):
                 cursor.execute(sql_del, (ip,))
                 self.connector.commit()
             else:
-                print 'useful'
+                print 'useful', ip
         return True
 # validatorService = validatorIP()
 # validatorService.start()
